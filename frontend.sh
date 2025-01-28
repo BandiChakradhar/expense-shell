@@ -23,7 +23,7 @@ CHECK_ROOT(){
         exit 1
     fi
 }
-
+mkdir -p $LOGS_FOLDER
 echo "script executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
 CHECK_ROOT
