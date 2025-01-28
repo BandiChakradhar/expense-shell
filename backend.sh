@@ -55,6 +55,7 @@ VALIDATE $? "downloading backend"
 
 cd /app
 
+rm -rf /app/*
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
 VALIDATE $? "unzip backend"
 
@@ -73,8 +74,8 @@ VALIDATE $? "setting up transaction scshema and tables"
 systemctl daemon-reload &>>$LOG_FILE_NAME
 VALIDATE $? "daemon reload"
 
-systemctl start backend &>>$LOG_FILE_NAME
-VALIDATE $? "staring backend"
-
 systemctl enable backend &>>$LOG_FILE_NAME
 VALIDATE $? "enabling backend"
+
+systemctl restart backend &>>$LOG_FILE_NAME
+VALIDATE $? "staring backend"
