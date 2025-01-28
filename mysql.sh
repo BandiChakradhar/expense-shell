@@ -39,7 +39,7 @@ VALIDATE $? "starting mysql server"
 
 
 
-mysql -h mysql.daws82s.sbs -u root -pExpenseApp@1 -e 'show databases;'
+mysql -h mysql.daws82s.sbs -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_NAME
 
 if [ $? -ne 0 ]
 then 
